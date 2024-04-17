@@ -98,7 +98,8 @@ margin-bottom: 17px;
         padding: 20px 80px ;
         border-right:none;
         margin-bottom: 20px;
-        
+        display: none;
+
        
        }
        .category span{
@@ -159,7 +160,8 @@ margin-bottom: 17px;
       .category{
         padding: 20px 80px ;
         margin-bottom: 20px;
-        
+        display: none;
+
          border-right:none;
        }
        .category span{
@@ -223,6 +225,7 @@ margin-bottom: 17px;
          
          .homeSlide{
            padding: 10px 0 0 10px;
+           
          
         }
          .homeSlide h1 {
