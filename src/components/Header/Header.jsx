@@ -15,16 +15,18 @@ const Header = () => {
   const navigate = useNavigate();
   //  filter products
   const handleSearch = (e) => {
-    const searchTerm = e.target.value;
-    const searchedProduct = products.filter((item) =>
+    let searchTerm = e.target.value;
+    const searchedProduct = data.filter((item) =>
       item.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setProducts(searchedProduct);
-    if (searchTerm === "") {
-      navigate(-1);
-    } else {
+    if (searchTerm.length === 0) {
+       navigate("/home");
+
+    }else{
       navigate("/shop");
-    }
+
+     }
   };
 
   const stickyHeaderFunc = () => {

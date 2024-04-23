@@ -7,7 +7,7 @@ const Contact = () => {
     window.scrollTo(0, 0);
   }, []);
   return  <section>
-
+ 
 <Container>
 <Breadcrumb className='mb-5'>
       <Breadcrumb.Item href="#">Home</Breadcrumb.Item>

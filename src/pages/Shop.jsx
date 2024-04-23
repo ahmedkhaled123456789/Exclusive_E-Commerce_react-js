@@ -7,38 +7,43 @@ const Shop = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const [category, setCategory] = useState("ALL");
   const [products,setProducts]=useState(data);
   const handleSearch=(e) =>{
     const searchTerm= e.target.value;
-    const searchedProduct= products.filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()) )
+    const searchedProduct= data.filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()) )
   setProducts(searchedProduct) ;
   }
-  const handleFilter=(e) =>{
-    const filterValue= e.target.value;
-    if(filterValue === 'wear'){
-      const filteredProducts= products.filter((item) => item.category === 'wear');
+
+ 
+      useEffect(() => {
+        if (category === "ALL") {
+          setProducts(data);
+        }
+     if(category === 'wear'){
+      const filteredProducts= data.filter((item) => item.category === 'wear');
       setProducts(filteredProducts)
     }
     
-    if(filterValue === 'gaming'){
-      const filteredProducts= products.filter((item) => item.category === 'gaming');
+    if(category === 'gaming'){
+      const filteredProducts= data.filter((item) => item.category === 'gaming');
       setProducts(filteredProducts)
     }
     
-    if(filterValue === 'car'){
-      const filteredProducts= products.filter((item) => item.category === 'car');
+    if(category === 'car'){
+      const filteredProducts= data.filter((item) => item.category === 'car');
       setProducts(filteredProducts)
     }
-   
-      }
+
+      }, [category]);
   return (
     <section>
 <Container > 
         <Row>
           <Col lg="3" md='6' sm='6' xs='6'>
             <div className="filter_widget">
-              <select  onChange={handleFilter}>
-                <option >Filter by category</option>
+              <select  onChange={(e) =>setCategory(e.target.value)}>
+                <option value="ALL">Filter by category</option>
                 <option value="wear">Wear</option>
                 <option value="gaming">Gaming</option>
                 <option value="car">Car</option>
